@@ -6,6 +6,7 @@ import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
 import Resume from "../assets/Resume.pdf";
+import character from "../assets/character.png"; // Your image path
 
 const Contact = () => {
   const formRef = useRef();
@@ -65,9 +66,7 @@ const Contact = () => {
   };
 
   return (
-    <div
-      className={`xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden`}
-    >
+    <div className={`xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden`}>
       <motion.div
         variants={slideIn("left", "tween", 0.2, 1)}
         className="flex-[0.75] bg-black-100 p-8 rounded-2xl"
@@ -115,8 +114,6 @@ const Contact = () => {
           </label>
 
           <div className="flex space-x-4">
-            {" "}
-            {/* Flex container for buttons */}
             <button
               type="submit"
               className="bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary"
@@ -124,8 +121,6 @@ const Contact = () => {
               {loading ? "Sending..." : "Send"}
             </button>
             <a href={Resume} download>
-              {" "}
-              {/* Anchor tag with download attribute */}
               <button
                 type="button" // Use type='button' if this button is not submitting a form
                 className="bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary"
@@ -139,8 +134,13 @@ const Contact = () => {
 
       <motion.div
         variants={slideIn("right", "tween", 0.2, 1)}
-        className="xl:flex-1 xl:h-auto md:h-[550px] h-[350px]"
+        className="xl:flex-1 xl:h-auto md:h-[550px] h-[350px] flex justify-center items-center"
       >
+        <img 
+          src={character} 
+          alt="Your Avatar" 
+          className="w-full h-auto rounded-lg border-4 border-gray-300 shadow-lg" // Added styles for rounded corners and border
+        />
       </motion.div>
     </div>
   );
